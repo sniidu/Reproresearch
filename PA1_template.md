@@ -14,7 +14,7 @@ Creating histogram of the total number of steps taken each day
 with(act, hist(tapply(steps, date, sum), xlab="Number of steps per day",
                ylab="", main="Histogram of number of steps in a day"))
 ```
-
+![plot of chunk plot1](figure/plot1.png) 
 
 And calculating mean and median of total number of steps taken per day
 ```{r}
@@ -33,6 +33,7 @@ averages <- aggregate(x=list(steps=act$steps), by=list(interval=act$interval),
                       FUN=mean, na.rm=TRUE)
 plot(averages$steps~averages$interval, type="l", xlab="5-minute interval",
      ylab="Average number of steps taken", main="")
+![plot of chunk plot2](figure/plot2.png) 
 max <- averages[which.max(averages$steps),]
 max.steps <- max[,2]
 ```
@@ -81,6 +82,7 @@ library(ggplot2)
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
   xlab("5-minute interval") + ylab("Number of steps")
 ```
+![plot of chunk plot3](figure/plot3.png) 
  
 
 
