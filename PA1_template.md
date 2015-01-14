@@ -33,10 +33,11 @@ averages <- aggregate(x=list(steps=act$steps), by=list(interval=act$interval),
                       FUN=mean, na.rm=TRUE)
 plot(averages$steps~averages$interval, type="l", xlab="5-minute interval",
      ylab="Average number of steps taken", main="")
-![plot of chunk plot2](figure/plot2.png) 
 max <- averages[which.max(averages$steps),]
 max.steps <- max[,2]
 ```
+![plot of chunk plot2](figure/plot2.png) 
+
 Maximum average steps in one day was `r max.steps`.
 
 
